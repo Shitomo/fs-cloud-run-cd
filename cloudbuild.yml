@@ -1,0 +1,15 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+steps:
+  - name: "gcr.io/$PROJECT_ID/deployer"
+    env:
+      - "KO_DOCKER_REPO=gcr.io/$PROJECT_ID"
+    script: |
+      gcloud run \
+      deploy platform \
+      --image $(SOURCE_DATE_EPOCH=$(date +%s) ko build ./) \
+      --region asia-northeast1 \
+      --cpu 1 \
+      --memory 128Mi \
+      --max-instances 1 \
+      --allow-unauthenticated
