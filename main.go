@@ -13,5 +13,5 @@ func (s Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.Handle("/", Server("Hello World with ko."))
-	http.ListenAndServe("localhost:8080", nil)
+	http.ListenAndServe(":8080", nil)
 }
