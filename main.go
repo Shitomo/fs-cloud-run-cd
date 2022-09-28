@@ -1,7 +1,17 @@
 package main
 
-import "log"
+import (
+	"fmt"
+	"net/http"
+)
+
+type Server string
+
+func (s Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, s)
+}
 
 func main() {
-	log.Println("Hello Cloud Run")
+	http.Handle("/", Server("Hello World."))
+	http.ListenAndServe("localhost:8080", nil)
 }
