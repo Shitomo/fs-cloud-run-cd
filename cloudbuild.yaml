@@ -4,6 +4,7 @@ steps:
   - name: "gcr.io/$PROJECT_ID/deployer"
     env:
       - "KO_DOCKER_REPO=gcr.io/$PROJECT_ID"
+      - "PROJECT_ID=$PROJECT_ID"
     script: |
       gcloud run \
       deploy fs-cloud-run-cd \
