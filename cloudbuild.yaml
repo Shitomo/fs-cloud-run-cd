@@ -12,4 +12,5 @@ steps:
       --cpu 1 \
       --memory 128Mi \
       --max-instances 1 \
+      --service-account cloud-run@$PROJECT_ID.iam.gserviceaccount.com \
       --allow-unauthenticated
