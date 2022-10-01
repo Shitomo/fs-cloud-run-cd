@@ -6,7 +6,7 @@ steps:
       - "KO_DOCKER_REPO=gcr.io/$PROJECT_ID"
     script: |
       gcloud run \
-      deploy platform \
+      deploy fs-cloud-run-cd \
       --image $(SOURCE_DATE_EPOCH=$(date +%s) ko build ./) \
       --region asia-northeast1 \
       --cpu 1 \
