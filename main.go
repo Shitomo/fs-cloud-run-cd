@@ -12,6 +12,6 @@ func (s Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.Handle("/", Server("Hello World with ko."))
+	http.Handle("/", Server("Hello CloudRun with ko."))
 	http.ListenAndServe(":8080", nil)
 }
